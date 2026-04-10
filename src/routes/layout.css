@@ -1,0 +1,23 @@
+@import 'tailwindcss';
+
+@theme {
+    --color-primary: #e2b714;
+    --color-primary-foreground: #222222;
+    --color-background: #323437;
+    --color-foreground: #d1d0c5;
+    --color-sub: #2c2e31;
+    --color-sub-alt: #646669;
+}
+
+body {
+    background: var(--color-background);
+    color: var(--color-foreground);
+}
+
+h1 {
+    font-size: 32px;
+}
+
+h2 {
+    font-size: 24px;
+}
