@@ -47,7 +47,25 @@
 				href={route.href}
 				class="border-l-2 border-primary px-2 text-primary italic hover:bg-primary hover:text-primary-foreground"
 			>
-				{route.label}
+				<div class="flex flex-col">
+					<span>
+						{#if route.contentType === 'pdf'}
+							pdf
+						{:else if route.contentType === 'iframe'}
+							lol
+						{/if}
+					</span>
+					<span>
+						{route.label}
+					</span>
+					{#if route.tags}
+						<span>
+							{#each route.tags as tag (tag)}
+								{tag}
+							{/each}
+						</span>
+					{/if}
+				</div>
 			</a>
 		{:else}
 			No matches found
