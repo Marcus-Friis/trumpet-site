@@ -44,5 +44,40 @@ export const routes: Route[] = [
 			'<iframe width="1200" height="600" src="https://www.youtube.com/embed/CrZ_bAZn0JA?si=kq7j_a4oJwuTz47Z" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
 		contentType: 'iframe',
 		source: 'https://www.youtube.com/watch?v=CrZ_bAZn0JA'
+	},
+	{
+		href: '/joy-spring',
+		label: 'Joy Spring',
+		type: 'tune',
+		content: '/pdf/Joy-Spring-Bb.pdf',
+		contentType: 'pdf',
+		source:
+			'https://dpu-p-001.sitecorecontenthub.cloud/api/public/content/c25d27380de24fa49a8d4f561d11b7a6?v=011c4e4a'
+	},
+	{
+		href: '/groovin-high',
+		label: 'Groovin High',
+		type: 'tune',
+		content: '/pdf/Groovin-High-Bb.pdf',
+		contentType: 'pdf',
+		source: 'https://communityartsprogram.org/wp-content/uploads/2016/05/Groovin-High-Bb.pdf'
+	},
+	{
+		href: '/so-what',
+		label: 'So What Solo Transcription',
+		type: 'improv',
+		content: '/pdf/So-What-Solo.pdf',
+		contentType: 'pdf',
+		source:
+			'http://www.thetuningnote.com/_transcriptions/jazz%20trumpet/Miles%20Davis%20-%20So%20What%20(Kind%20of%20Blue,%201959).pdf'
+	},
+	{
+		href: '/sandu-solo',
+		label: 'Clifford Brown Sandu solo transcription',
+		type: 'improv',
+		content:
+			'<iframe id="score-iframe" width="100%" height="394" src="https://musescore.com/user/27189085/scores/6198365/embed" frameborder="0" allowfullscreen allow="autoplay; fullscreen"></iframe><span><a href="https://musescore.com/user/27189085/scores/6198365" target="_blank">Clifford Brown Sandu solo transcription</a> by <a href="https://musescore.com/user/27189085">LucasDavis6</a></span>',
+		contentType: 'iframe',
+		source: 'https://musescore.com/user/27189085/scores/6198365'
 	}
 ];
