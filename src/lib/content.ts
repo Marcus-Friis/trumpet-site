@@ -26,7 +26,7 @@ export const routes: Route[] = [
 		label: 'All of me improv',
 		type: 'video',
 		content:
-			'<iframe width="1200" height="600" src="https://www.youtube.com/embed/umJB6J87k0A?si=vM6t42-nIBZVQHfh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
+			'<iframe width="100%" height="600" src="https://www.youtube.com/embed/umJB6J87k0A?si=vM6t42-nIBZVQHfh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
 		contentType: 'iframe',
 		tags: ['jazz', 'standard', 'wynton marsalis'],
 		source: 'https://www.youtube.com/watch?v=umJB6J87k0A'
@@ -36,7 +36,7 @@ export const routes: Route[] = [
 		label: 'The Good, The Bad, The Ugly',
 		type: 'tune',
 		content:
-			'<iframe id="score-iframe" width="80%" height="1000" src="https://musescore.com/user/175294/scores/168248/embed" frameborder="0" allowfullscreen allow="autoplay; fullscreen"></iframe><span><a href="https://musescore.com/user/175294/scores/168248" target="_blank">The Good, The Bad, The Ugly - The Triello</a> by <a href="https://musescore.com/user/175294">ingegnere</a></span>',
+			'<iframe id="score-iframe" width="100%" height="1000" src="https://musescore.com/user/175294/scores/168248/embed" frameborder="0" allowfullscreen allow="autoplay; fullscreen"></iframe><span><a href="https://musescore.com/user/175294/scores/168248" target="_blank">The Good, The Bad, The Ugly - The Triello</a> by <a href="https://musescore.com/user/175294">ingegnere</a></span>',
 		contentType: 'iframe',
 		tags: ['film', 'ennio morricone'],
 		source: 'https://musescore.com/user/175294/scores/168248'
@@ -46,7 +46,7 @@ export const routes: Route[] = [
 		label: 'The Chicken: Backing track',
 		type: 'backing',
 		content:
-			'<iframe width="80%" height="600" src="https://www.youtube.com/embed/CrZ_bAZn0JA?si=kq7j_a4oJwuTz47Z" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
+			'<iframe width="100%" height="600" src="https://www.youtube.com/embed/CrZ_bAZn0JA?si=kq7j_a4oJwuTz47Z" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>',
 		contentType: 'iframe',
 		tags: ['jazz', 'funk', 'jaco pastorius'],
 		source: 'https://www.youtube.com/watch?v=CrZ_bAZn0JA'
@@ -85,7 +85,7 @@ export const routes: Route[] = [
 		label: 'Clifford Brown Sandu solo transcription',
 		type: 'transcription',
 		content:
-			'<iframe id="score-iframe" width="80%" height="1000" src="https://musescore.com/user/27189085/scores/6198365/embed" frameborder="0" allowfullscreen allow="autoplay; fullscreen"></iframe><span><a href="https://musescore.com/user/27189085/scores/6198365" target="_blank">Clifford Brown Sandu solo transcription</a> by <a href="https://musescore.com/user/27189085">LucasDavis6</a></span>',
+			'<iframe id="score-iframe" width="100%" height="1000" src="https://musescore.com/user/27189085/scores/6198365/embed" frameborder="0" allowfullscreen allow="autoplay; fullscreen"></iframe><span><a href="https://musescore.com/user/27189085/scores/6198365" target="_blank">Clifford Brown Sandu solo transcription</a> by <a href="https://musescore.com/user/27189085">LucasDavis6</a></span>',
 		contentType: 'iframe',
 		tags: ['jazz', 'bebop', 'clifford brown'],
 		source: 'https://musescore.com/user/27189085/scores/6198365'

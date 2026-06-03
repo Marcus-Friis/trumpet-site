@@ -7,7 +7,7 @@
 
 <svelte:head><link rel="icon" href={favicon} /></svelte:head>
 
-<div class="mb-24 flex min-h-screen flex-col items-center gap-16">
+<div class="flex min-h-screen flex-col items-center gap-16">
 	<header class="mt-16">
 		<div class="grid grid-cols-3 items-center">
 			<div></div>
