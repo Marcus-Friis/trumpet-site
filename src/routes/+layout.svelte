@@ -20,7 +20,6 @@
 				</a>
 				<span>🎺</span>
 			</h1>
-			<a class="underline" href="/submit">Submit</a>
 		</div>
 	</header>
 

@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import { routes } from '$lib/content';
-	import { flip } from 'svelte/animate';
 
 	let query = $state('');
 
@@ -35,7 +34,8 @@
 
 	<button
 		onclick={() => goto(getRandom(filtered.length !== 0 ? filtered : routes).href)}
-		class="bg-primary p-2 text-primary-foreground"
+		class="bg-primary p-2 text-primary-foreground disabled:opacity-50"
+		disabled={filtered.length === 0}
 	>
 		Randomize
 	</button>
@@ -43,7 +43,6 @@
 	<div class="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
 		{#each filtered as route (route.href)}
 			<a
-				animate:flip
 				href={route.href}
 				class="border-l-2 border-primary px-2 text-primary italic hover:bg-primary hover:text-primary-foreground"
 			>
