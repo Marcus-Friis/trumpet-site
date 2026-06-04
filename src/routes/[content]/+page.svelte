@@ -8,6 +8,9 @@
 	<div class="w-full" style="height: calc(100dvh - var(--layout-offset));">
 		{#if data.contentType === 'pdf'}
 			<embed src={data.content} width="100%" height="100%" type="application/pdf" />
+			<div class="flex justify-center">
+				<a class="bottom-style mt-4" href={data.content}>Go to source</a>
+			</div>
 		{/if}
 		{#if data.contentType === 'iframe'}
 			{@html data.content}
