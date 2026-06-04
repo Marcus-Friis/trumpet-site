@@ -45,8 +45,8 @@
 {/snippet}
 
 <div class="flex min-h-screen flex-col items-center gap-16">
-	<header class="mt-16 w-6/10">
-		<div class="grid items-center xl:grid-cols-2">
+	<header class="content-width mt-16">
+		<div class="grid items-center lg:grid-cols-2">
 			<h1 class="group mb-6 text-4xl! font-bold text-primary">
 				<a
 					href="/"
@@ -59,7 +59,14 @@
 		</div>
 	</header>
 
-	<div class="flex w-6/10 items-center gap-16">
+	<div class="content-width flex items-center justify-center gap-16">
 		{@render children()}
 	</div>
 </div>
+
+<style>
+	.content-width {
+		width: 60%;
+		min-width: 600px;
+	}
+</style>
