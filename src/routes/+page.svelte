@@ -28,7 +28,7 @@
 		class="w-80 border-b-2 focus:border-primary focus:outline-none"
 	/>
 	<RandomButton entries={filtered} />
-	<ul class="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+	<ul class="grid gap-4 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
 		{#each filtered as route (route.href)}
 			<li>
 				<a

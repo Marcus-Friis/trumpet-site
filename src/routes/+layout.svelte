@@ -62,5 +62,7 @@
 		</div>
 	</header>
 
-	{@render children()}
+	<div class="flex w-6/10 items-center gap-16">
+		{@render children()}
+	</div>
 </div>
