@@ -109,5 +109,53 @@ export const routes: Route[] = [
 		tags: ['jazz'],
 		source:
 			'http://www.thetuningnote.com/_trumpetsheets/jazz/lead%20sheets/It%27s%20Been%20A%20Long,%20Long%20Time%20(Bb%20part%20in%20concert%20Ab%20Major).pdf'
+	},
+	{
+		href: '/some-skunk-funk',
+		label: 'Some Skunk Funk',
+		type: 'tune',
+		content: '/pdf/some-skunk-funk.pdf',
+		contentType: 'pdf',
+		tags: ['funk', 'mibb'],
+		source: 'MIBB'
+	},
+	{
+		href: '/floral-fury',
+		label: 'Floral Fury',
+		type: 'tune',
+		content:
+			'<iframe id="score-iframe" width="100%" height="1000" src="https://musescore.com/user/15425726/scores/5956939/embed" frameborder="0" allowfullscreen allow="autoplay; fullscreen"></iframe><span><a href="https://musescore.com/user/15425726/scores/5956939" target="_blank">Floral Fury (PLAYABLE FULL TRUMPET SOLO)</a> by <a href="https://musescore.com/user/15425726">Kaptain Kaleb</a></span>',
+		contentType: 'iframe',
+		tags: ['video game', 'cuphead'],
+		source: 'https://musescore.com/user/15425726/scores/5956939'
+	},
+	{
+		href: '/autumn-leaves',
+		label: 'Autumn Leaves',
+		type: 'tune',
+		content:
+			'<iframe id="score-iframe" width="100%" height="1000" src="https://musescore.com/user/30275987/scores/7194975/embed" frameborder="0" allowfullscreen allow="autoplay; fullscreen"></iframe><span><a href="https://musescore.com/user/30275987/scores/7194975" target="_blank">Autumn Leaves – Chet Baker, Paul Desmond</a> by <a href="https://musescore.com/user/30275987">error129</a></span>',
+		contentType: 'iframe',
+		tags: ['jazz', 'standard'],
+		source: 'https://musescore.com/user/30275987/scores/7194975'
+	},
+	{
+		href: '/fistful-of-dollars',
+		label: 'A Fistful of Dollars (Sundown)',
+		type: 'tune',
+		content:
+			'<iframe id="score-iframe" width="100%" height="1000" src="https://musescore.com/user/19837461/scores/5038277/embed" frameborder="0" allowfullscreen allow="autoplay; fullscreen"></iframe><span><a href="https://musescore.com/user/19837461/scores/5038277" target="_blank">Sundown - A Fistful of Dollars - Ennio Morricone</a> by <a href="https://musescore.com/user/19837461">Deura</a></span>',
+		contentType: 'iframe',
+		tags: ['film', 'ennio morricone'],
+		source: 'https://musescore.com/user/19837461/scores/5038277'
+	},
+	{
+		href: '/softly-as-a-morning-sunrise',
+		label: 'Softly As A Morning Sunrise',
+		type: 'tune',
+		content: '/pdf/Bb-Softly-as-a-Morning-Sunrise.pdf',
+		contentType: 'pdf',
+		tags: ['jazz', 'standard'],
+		source: 'https://vtjazz.org/wp-content/uploads/2021/07/Bb-Softly-as-a-Morning-Sunrise.pdf'
 	}
 ];
