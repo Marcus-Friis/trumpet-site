@@ -89,5 +89,25 @@ export const routes: Route[] = [
 		contentType: 'iframe',
 		tags: ['jazz', 'bebop', 'clifford brown'],
 		source: 'https://musescore.com/user/27189085/scores/6198365'
+	},
+	{
+		href: '/youre-getting-to-be',
+		label: "You're Getting To Be A Habit With Me",
+		type: 'tune',
+		content:
+			'<iframe id="score-iframe" width="100%" height="1000" src="https://musescore.com/user/70173934/scores/15429895/embed" frameborder="0" allowfullscreen allow="autoplay; fullscreen"></iframe><span><a href="https://musescore.com/user/70173934/scores/15429895" target="_blank">You&#39;re Getting To Be A Habit With Me – Harry Warren, Al Dubin You&#39;re getting to be a habit with me – 42nd STREET</a> by <a href="https://musescore.com/user/70173934">realJerryDaHorn</a></span>',
+		contentType: 'iframe',
+		tags: ['jazz'],
+		source: 'https://musescore.com/user/70173934/scores/15429895'
+	},
+	{
+		href: '/its-been-a-long-long-time',
+		label: "It's Been A Long, Long Time",
+		type: 'tune',
+		content: '/pdf/its-been-a-long-long-time.pdf',
+		contentType: 'pdf',
+		tags: ['jazz'],
+		source:
+			'http://www.thetuningnote.com/_trumpetsheets/jazz/lead%20sheets/It%27s%20Been%20A%20Long,%20Long%20Time%20(Bb%20part%20in%20concert%20Ab%20Major).pdf'
 	}
 ];
