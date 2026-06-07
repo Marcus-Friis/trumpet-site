@@ -150,11 +150,11 @@ export const routes: Route[] = [
 		source: 'https://musescore.com/user/19837461/scores/5038277'
 	},
 	{
-		href: '/softly-as-a-morning-sunrise',
-		label: 'Softly As A Morning Sunrise',
+		href: '/softly-as-in-a-morning-sunrise',
+		label: 'Softly As In A Morning Sunrise',
 		type: 'tune',
-		content: '/pdf/Bb-Softly-as-a-Morning-Sunrise.pdf',
-		contentType: 'pdf',
+		content: '/md/softly-as-in-a-morning-sunrise.md',
+		contentType: 'md',
 		tags: ['jazz', 'standard'],
 		source: 'https://vtjazz.org/wp-content/uploads/2021/07/Bb-Softly-as-a-Morning-Sunrise.pdf'
 	}
