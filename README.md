@@ -2,6 +2,14 @@
 
 ## Ideas
 
+### Semi randomization
+
+Don't fully randomize with random button. Prioritize unvisited sheets in the session.
+
+### Music utils
+
+Add a toolbar or something with common music utilities e.g. for setting and playing a metronome.
+
 ### Color picker
 
 Make colors customizable by creating presets for and apply `foreground`, `background`, `primary`, `primary-foreground`, `secondary`, `secondary-foreground`, `accent`, `accent-foreground` etc.
@@ -14,9 +22,9 @@ Accept different file formats for exercises. Could be PDF, markdown (convert to 
 
 Add tags to each page e.g. `exercise`, `tune`, `improv` or something like that.
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
-
 ## Developing
+
+Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
 
 Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
 
