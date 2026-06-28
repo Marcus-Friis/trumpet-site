@@ -91,16 +91,6 @@ export const routes: Route[] = [
 		source: 'https://musescore.com/user/27189085/scores/6198365'
 	},
 	{
-		href: '/youre-getting-to-be',
-		label: "You're Getting To Be A Habit With Me",
-		type: 'tune',
-		content:
-			'<iframe id="score-iframe" width="100%" height="1000" src="https://musescore.com/user/70173934/scores/15429895/embed" frameborder="0" allowfullscreen allow="autoplay; fullscreen"></iframe><span><a href="https://musescore.com/user/70173934/scores/15429895" target="_blank">You&#39;re Getting To Be A Habit With Me – Harry Warren, Al Dubin You&#39;re getting to be a habit with me – 42nd STREET</a> by <a href="https://musescore.com/user/70173934">realJerryDaHorn</a></span>',
-		contentType: 'iframe',
-		tags: ['jazz'],
-		source: 'https://musescore.com/user/70173934/scores/15429895'
-	},
-	{
 		href: '/its-been-a-long-long-time',
 		label: "It's Been A Long, Long Time",
 		type: 'tune',

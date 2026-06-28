@@ -5,7 +5,6 @@ import { routes } from '$lib/content';
 export const load: PageLoad = async ({ fetch, params }) => {
 	const route = routes.find((route) => route.href.substring(1) === params.content);
 
-	console.log(route, routes);
 	if (!route) {
 		error(404, `Page "${params.content}" not found`);
 	}
