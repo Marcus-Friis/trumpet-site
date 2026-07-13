@@ -2,6 +2,7 @@
 	import './layout.css';
 	import favicon from '$lib/assets/favicon.svg';
 	import { page } from '$app/state';
+	import { resolve } from '$app/paths';
 	import { routes, type Route } from '$lib/content';
 	import RandomButton from '$lib/RandomButton.svelte';
 	import Metronome from '$lib/Metronome.svelte';
@@ -18,7 +19,7 @@
 {#snippet link(route: Route, direction: 'left' | 'right')}
 	{@const border = direction === 'left' ? 'border-l-2' : 'border-r-2'}
 	<a
-		href={route.href}
+		href={resolve(route.href)}
 		class="block min-w-0 truncate {border} border-primary px-2 py-1 font-semibold not-italic hover:bg-primary hover:text-primary-foreground"
 	>
 		{#if direction === 'left'}
@@ -50,7 +51,7 @@
 		<div class="grid items-center lg:grid-cols-2">
 			<h1 class="group mb-6 text-4xl! font-bold text-primary">
 				<a
-					href="/"
+					href={resolve('/')}
 					class="border-l-4 border-primary p-4 hover:bg-primary hover:text-primary-foreground"
 				>
 					Trumpet

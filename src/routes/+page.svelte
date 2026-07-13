@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import { routes } from '$lib/content';
 	import RandomButton from '$lib/RandomButton.svelte';
 
@@ -32,7 +33,7 @@
 		{#each filtered as route (route.href)}
 			<li>
 				<a
-					href={route.href}
+					href={resolve(route.href)}
 					class="flex h-full flex-col gap-1 border-l-2 border-primary px-2 hover:bg-primary hover:text-primary-foreground"
 				>
 					<span class="text-xs uppercase opacity-70">{route.type}</span>

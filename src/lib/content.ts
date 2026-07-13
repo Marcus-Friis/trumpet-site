@@ -1,7 +1,7 @@
 export type RouteType = 'tune' | 'transcription' | 'video' | 'backing' | 'study';
 
 export type Route = {
-	href: string;
+	href: `/${string}`;
 	label: string;
 	type: RouteType;
 	content?: string;
