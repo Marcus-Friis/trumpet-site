@@ -60,12 +60,11 @@
 		</div>
 	</header>
 
-	<Metronome />
-
 	<div class="content-width flex items-center justify-center gap-16">
 		{@render children()}
 	</div>
 </div>
+<Metronome />
 
 <style>
 	.content-width {

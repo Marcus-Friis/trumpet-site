@@ -1,4 +1,6 @@
 <script lang="ts">
+	import FloatingPanel from './FloatingPanel.svelte';
+
 	let bpm = $state(120);
 	let isPlaying = $state(false);
 	let beatsPerMeasure = $state(4);
@@ -9,8 +11,8 @@
 	let schedulerId: number | null = null;
 	let beatCounter = 0;
 
-	const LOOKAHEAD = 25; // ms, how often the scheduler runs
-	const SCHEDULE_AHEAD_TIME = 0.1; // seconds, how far ahead to schedule audio
+	const LOOKAHEAD = 25;
+	const SCHEDULE_AHEAD_TIME = 0.1;
 
 	const playClick = (time: number, accent: boolean) => {
 		if (!audioCtx) return;
@@ -18,11 +20,9 @@
 		const gain = audioCtx.createGain();
 		osc.connect(gain);
 		gain.connect(audioCtx.destination);
-
 		osc.frequency.value = accent ? 1000 : 800;
 		gain.gain.setValueAtTime(1, time);
 		gain.gain.exponentialRampToValueAtTime(0.001, time + 0.05);
-
 		osc.start(time);
 		osc.stop(time + 0.05);
 	};
@@ -32,17 +32,9 @@
 		while (nextNoteTime < audioCtx.currentTime + SCHEDULE_AHEAD_TIME) {
 			const accent = beatCounter % beatsPerMeasure === 0;
 			playClick(nextNoteTime, accent);
-
 			const beatToShow = beatCounter % beatsPerMeasure;
-			const noteTime = nextNoteTime;
-			const delay = (noteTime - audioCtx.currentTime) * 1000;
-			setTimeout(
-				() => {
-					currentBeat = beatToShow;
-				},
-				Math.max(0, delay)
-			);
-
+			const delay = (nextNoteTime - audioCtx.currentTime) * 1000;
+			setTimeout(() => (currentBeat = beatToShow), Math.max(0, delay));
 			nextNoteTime += 60 / bpm;
 			beatCounter++;
 		}
@@ -71,57 +63,50 @@
 
 	const toggle = () => (isPlaying ? stop() : start());
 
-	const onBpmInput = (e: Event) => {
-		bpm = Number((e.target as HTMLInputElement).value);
-	};
-
 	$effect(() => {
 		return () => stop();
 	});
 </script>
 
-<div class="flex w-fit flex-col items-center gap-4 border-2 border-primary p-6">
-	<div class="flex items-center gap-4">
-		<button
-			onclick={() => (bpm = Math.max(30, bpm - 1))}
-			class="border-2 border-primary px-3 py-1 font-bold hover:bg-primary hover:text-primary-foreground"
-			aria-label="Decrease tempo"
-		>
-			−
-		</button>
-		<div class="w-20 text-center">
-			<div class="text-3xl font-bold text-primary">{bpm}</div>
-			<div class="text-xs">BPM</div>
+{#snippet icon()}
+	♩
+{/snippet}
+
+{#snippet panel()}
+	<div class="flex w-fit flex-col items-center gap-4">
+		<div class="flex items-center gap-4">
+			<button
+				onclick={() => (bpm = Math.max(30, bpm - 1))}
+				class="border-2 border-primary px-3 py-1 font-bold hover:bg-primary hover:text-primary-foreground"
+				aria-label="Decrease tempo"
+			>
+				−
+			</button>
+			<div class="w-20 text-center">
+				<div class="text-3xl font-bold text-primary">{bpm}</div>
+				<div class="text-xs">BPM</div>
+			</div>
+			<button
+				onclick={() => (bpm = Math.min(300, bpm + 1))}
+				class="border-2 border-primary px-3 py-1 font-bold hover:bg-primary hover:text-primary-foreground"
+				aria-label="Increase tempo"
+			>
+				+
+			</button>
 		</div>
-		<button
-			onclick={() => (bpm = Math.min(300, bpm + 1))}
-			class="border-2 border-primary px-3 py-1 font-bold hover:bg-primary hover:text-primary-foreground"
-			aria-label="Increase tempo"
-		>
-			+
-		</button>
-	</div>
 
-	<input
-		type="range"
-		min="30"
-		max="300"
-		value={bpm}
-		oninput={onBpmInput}
-		class="w-48 accent-primary"
-	/>
+		<input type="range" min="30" max="300" bind:value={bpm} class="w-48 accent-primary" />
 
-	<div class="flex gap-2">
-		{#each Array(beatsPerMeasure) as _, i (i)}
-			<div
-				class="h-3 w-3 rounded-full border-2 border-primary {currentBeat === i && isPlaying
-					? 'bg-primary'
-					: 'bg-transparent'}"
-			></div>
-		{/each}
-	</div>
+		<div class="flex gap-2">
+			{#each Array(beatsPerMeasure) as _, i (i)}
+				<div
+					class="h-3 w-3 rounded-full border-2 border-primary {currentBeat === i && isPlaying
+						? 'bg-primary'
+						: 'bg-transparent'}"
+				></div>
+			{/each}
+		</div>
 
-	<div class="flex items-center gap-4">
 		<label class="flex items-center gap-2 text-sm">
 			Beats/measure
 			<select
@@ -133,12 +118,14 @@
 				{/each}
 			</select>
 		</label>
-	</div>
 
-	<button
-		onclick={toggle}
-		class="w-32 bg-primary p-2 font-semibold text-primary-foreground hover:opacity-90"
-	>
-		{isPlaying ? 'Stop' : 'Start'}
-	</button>
-</div>
+		<button
+			onclick={toggle}
+			class="w-32 bg-primary p-2 font-semibold text-primary-foreground hover:opacity-90"
+		>
+			{isPlaying ? 'Stop' : 'Start'}
+		</button>
+	</div>
+{/snippet}
+
+<FloatingPanel {icon} {panel} label="metronome" indicator={isPlaying} />
