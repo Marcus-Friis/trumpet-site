@@ -4,6 +4,7 @@
 	import { page } from '$app/state';
 	import { routes, type Route } from '$lib/content';
 	import RandomButton from '$lib/RandomButton.svelte';
+	import Metronome from '$lib/Metronome.svelte';
 
 	let { children } = $props();
 
@@ -58,6 +59,8 @@
 			{@render contentNav()}
 		</div>
 	</header>
+
+	<Metronome />
 
 	<div class="content-width flex items-center justify-center gap-16">
 		{@render children()}
