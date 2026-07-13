@@ -14,6 +14,46 @@
 	const LOOKAHEAD = 25;
 	const SCHEDULE_AHEAD_TIME = 0.1;
 
+	const HOLD_DELAY = 400; // ms before repeat starts
+	const HOLD_INTERVAL = 80; // ms between repeats
+
+	// Svelte action: calls `callback` once immediately on pointerdown,
+	// then repeatedly while held, until pointerup/leave/cancel.
+	const pressHold = (node: HTMLElement, callback: () => void) => {
+		let timeoutId: number | null = null;
+		let intervalId: number | null = null;
+
+		const clear = () => {
+			if (timeoutId !== null) clearTimeout(timeoutId);
+			if (intervalId !== null) clearInterval(intervalId);
+			timeoutId = null;
+			intervalId = null;
+		};
+
+		const onPointerDown = (e: PointerEvent) => {
+			e.preventDefault();
+			callback();
+			timeoutId = window.setTimeout(() => {
+				intervalId = window.setInterval(callback, HOLD_INTERVAL);
+			}, HOLD_DELAY);
+		};
+
+		node.addEventListener('pointerdown', onPointerDown);
+		node.addEventListener('pointerup', clear);
+		node.addEventListener('pointerleave', clear);
+		node.addEventListener('pointercancel', clear);
+
+		return {
+			destroy() {
+				clear();
+				node.removeEventListener('pointerdown', onPointerDown);
+				node.removeEventListener('pointerup', clear);
+				node.removeEventListener('pointerleave', clear);
+				node.removeEventListener('pointercancel', clear);
+			}
+		};
+	};
+
 	const playClick = (time: number, accent: boolean) => {
 		if (!audioCtx) return;
 		const osc = audioCtx.createOscillator();
@@ -62,6 +102,8 @@
 	};
 
 	const toggle = () => (isPlaying ? stop() : start());
+	const decrement = () => (bpm = Math.max(30, bpm - 1));
+	const increment = () => (bpm = Math.min(300, bpm + 1));
 
 	$effect(() => {
 		return () => stop();
@@ -76,8 +118,8 @@
 	<div class="flex w-fit flex-col items-center gap-4">
 		<div class="flex items-center gap-4">
 			<button
-				onclick={() => (bpm = Math.max(30, bpm - 1))}
-				class="border-2 border-primary px-3 py-1 font-bold hover:bg-primary hover:text-primary-foreground"
+				use:pressHold={decrement}
+				class="border-2 border-primary px-3 py-1 font-bold select-none hover:bg-primary hover:text-primary-foreground"
 				aria-label="Decrease tempo"
 			>
 				−
@@ -87,8 +129,8 @@
 				<div class="text-xs">BPM</div>
 			</div>
 			<button
-				onclick={() => (bpm = Math.min(300, bpm + 1))}
-				class="border-2 border-primary px-3 py-1 font-bold hover:bg-primary hover:text-primary-foreground"
+				use:pressHold={increment}
+				class="border-2 border-primary px-3 py-1 font-bold select-none hover:bg-primary hover:text-primary-foreground"
 				aria-label="Increase tempo"
 			>
 				+
