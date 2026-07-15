@@ -147,5 +147,23 @@ export const routes: Route[] = [
 		contentType: 'md',
 		tags: ['jazz', 'standard'],
 		source: 'https://vtjazz.org/wp-content/uploads/2021/07/Bb-Softly-as-a-Morning-Sunrise.pdf'
+	},
+	{
+		href: '/sir-duke',
+		label: 'Sir Duke',
+		type: 'tune',
+		content: '/pdf/stevie-wonder-sir-duke.pdf',
+		contentType: 'pdf',
+		tags: ['funk', 'soul', 'stevie wonder'],
+		source: 'https://garybadger.com/wp-content/uploads/2017/08/stevie-wonder-sir-duke-trumpet.pdf'
+	},
+	{
+		href: '/carnival-of-venice',
+		label: 'Carnival of Venice',
+		type: 'tune',
+		content: '/pdf/carnival-of-venice.pdf',
+		contentType: 'pdf',
+		tags: ['classical', 'variations'],
+		source: 'https://www.lauttamus.fi/harjoitusohjelma/Venetsian%20karnevaalit.pdf'
 	}
 ];
