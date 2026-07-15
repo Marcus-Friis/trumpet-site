@@ -2,21 +2,11 @@
 	import { marked } from 'marked';
 	import { resolve } from '$app/paths';
 	import type { PageProps } from './$types.ts';
-	import type { ResolvedPathname } from '$app/types';
 
 	let { data }: PageProps = $props();
 
-	const resolvedContent: ResolvedPathname | null = $derived(
-		data.content ? resolve(data.content as `/${string}`) : null
-	);
-
-	const mdPromise = $derived(
-		data.contentType === 'md' && resolvedContent
-			? fetch(resolvedContent)
-					.then((res) => res.text())
-					.then((raw) => marked(raw))
-			: null
-	);
+	const resolvedContent = $derived(data.content ? resolve(data.content as `/${string}`) : null);
+	const renderedMd = $derived(data.contentType === 'md' ? marked(data.content ?? '') : null);
 </script>
 
 <div class="flex w-full flex-col items-center gap-4">
@@ -30,14 +20,8 @@
 		{#if data.contentType === 'iframe'}
 			{@html data.content}
 		{/if}
-		{#if data.contentType === 'md' && mdPromise}
-			{#await mdPromise}
-				<p>Loading...</p>
-			{:then rendered}
-				{@html rendered}
-			{:catch}
-				<p>Failed to load content.</p>
-			{/await}
+		{#if data.contentType === 'md'}
+			{@html renderedMd}
 		{/if}
 	</div>
 </div>
