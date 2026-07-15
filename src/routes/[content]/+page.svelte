@@ -1,11 +1,11 @@
 <script lang="ts">
 	import { marked } from 'marked';
-	import { resolve } from '$app/paths';
+	import { asset } from '$app/paths';
 	import type { PageProps } from './$types.ts';
 
 	let { data }: PageProps = $props();
 
-	const resolvedContent = $derived(data.content ? resolve(data.content as `/${string}`) : null);
+	const resolvedContent = $derived(data.content ? asset(data.content) : null);
 	const renderedMd = $derived(data.contentType === 'md' ? marked(data.content ?? '') : null);
 </script>
 
