@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
+	import { resolve } from '$app/paths';
 	import { routes, type Route } from '$lib/content';
 
 	let { entries }: { entries?: Route[] } = $props();
@@ -29,7 +30,7 @@
 	const onClick = () => {
 		const random = getWeightedRandom(pool).href;
 		visited.push(random);
-		return goto(random);
+		return goto(resolve(random));
 	};
 </script>
 

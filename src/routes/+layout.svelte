@@ -2,14 +2,18 @@
 	import './layout.css';
 	import favicon from '$lib/assets/favicon.svg';
 	import { page } from '$app/state';
-	import { resolve } from '$app/paths';
+	import { resolve, base } from '$app/paths';
 	import { routes, type Route } from '$lib/content';
 	import RandomButton from '$lib/RandomButton.svelte';
 	import Metronome from '$lib/Metronome.svelte';
-
 	let { children } = $props();
 
-	const currentIndex = $derived(routes.findIndex((r) => r.href === page.url.pathname));
+	const currentPath = $derived(
+		base && page.url.pathname.startsWith(base)
+			? page.url.pathname.slice(base.length) || '/'
+			: page.url.pathname
+	);
+	const currentIndex = $derived(routes.findIndex((r) => r.href === currentPath));
 	const prev = $derived(routes[currentIndex - 1] ?? null);
 	const next = $derived(routes[currentIndex + 1] ?? null);
 </script>
