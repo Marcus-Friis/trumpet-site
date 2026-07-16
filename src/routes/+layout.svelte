@@ -16,11 +16,13 @@
 	const currentIndex = $derived(routes.findIndex((r) => r.href === currentPath));
 	const prev = $derived(routes[currentIndex - 1] ?? null);
 	const next = $derived(routes[currentIndex + 1] ?? null);
+
+	const title = $derived(page.data?.label ? page.data.label : 'Trumpet Tunes');
 </script>
 
 <svelte:head>
 	<link rel="icon" href={favicon} />
-	<title>Trumpet Tunes</title>
+	<title>{title}</title>
 </svelte:head>
 
 {#snippet link(route: Route, direction: 'left' | 'right')}
