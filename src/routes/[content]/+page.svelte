@@ -9,6 +9,10 @@
 	const renderedMd = $derived(data.contentType === 'md' ? marked(data.content ?? '') : null);
 </script>
 
+<svelte:head>
+	<title>{data.label}</title>
+</svelte:head>
+
 <div class="flex w-full flex-col items-center gap-4">
 	<div class="w-full space-y-2" style="height: calc(100dvh - var(--layout-offset));">
 		{#if data.contentType === 'pdf'}

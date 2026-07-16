@@ -18,7 +18,10 @@
 	const next = $derived(routes[currentIndex + 1] ?? null);
 </script>
 
-<svelte:head><link rel="icon" href={favicon} /></svelte:head>
+<svelte:head>
+	<link rel="icon" href={favicon} />
+	<title>Trumpet Tunes</title>
+</svelte:head>
 
 {#snippet link(route: Route, direction: 'left' | 'right')}
 	{@const border = direction === 'left' ? 'border-l-2' : 'border-r-2'}
